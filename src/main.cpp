@@ -64,15 +64,15 @@ int main(int argc, char *argv[])
     // Data folder
     settings.beginGroup("DataFolder");
     QDir dataDirectory;
-    QString dataDirectoryPath = QDir::toNativeSeparators(QCoreApplication::applicationDirPath());
+    QString dataDirectoryPath = QDir::toNativeSeparators(QCoreApplication::applicationDirPath() + "/");
     QString dataDirectoryLogs = QDir::toNativeSeparators(dataDirectoryPath + "logs");
 
     if (!dataDirectory.exists(dataDirectoryPath)) {
         dataDirectory.mkdir(dataDirectoryPath);
+    }
 
-        if (!dataDirectory.exists(dataDirectoryLogs)) {
-            dataDirectory.mkdir(dataDirectoryLogs);
-        }
+    if (!dataDirectory.exists(dataDirectoryLogs)) {
+        dataDirectory.mkdir(dataDirectoryLogs);
     }
 
     settings.setValue("QtEmuData", dataDirectoryPath);

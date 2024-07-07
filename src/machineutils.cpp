@@ -141,7 +141,7 @@ void MachineUtils::fillMachineObject(Machine *machine,
  */
 bool MachineUtils::deleteMachine(const QUuid machineUuid)
 {
-    QString dataDir = QDir::toNativeSeparators(QCoreApplication::applicationDirPath());
+    QString dataDir = QDir::toNativeSeparators(QCoreApplication::applicationDirPath() + "/");
     QSettings settings;
     settings.beginGroup("DataFolder");
     QString dataDirectoryPath = settings.value("QtEmuData", dataDir).toString();
