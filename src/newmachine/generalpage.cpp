@@ -134,7 +134,7 @@ bool MachineNamePage::validatePage()
 
     QSettings settings;
     settings.beginGroup("Configuration");
-    QString strMachinePath = settings.value("machinePath", QDir::homePath()).toString();
+    QString strMachinePath = settings.value("machinePath", QCoreApplication::applicationDirPath()).toString();
     settings.endGroup();
 
     QString machineName = field("machine.name").toString();

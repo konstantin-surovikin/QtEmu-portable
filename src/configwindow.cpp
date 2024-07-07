@@ -713,7 +713,7 @@ void ConfigWindow::loadSettings()
     settings.beginGroup("Configuration");
 
     // General
-    this->m_machinePathLineEdit->setText(settings.value("machinePath", QDir::homePath()).toString());
+    this->m_machinePathLineEdit->setText(settings.value("machinePath", QCoreApplication::applicationDirPath()).toString());
 #ifdef Q_OS_WIN
     this->m_monitorHostnameComboBox->setCurrentText(settings.value("qemuMonitorHost", "localhost").toString());
     this->m_monitorSocketSpinBox->setValue(settings.value("qemuMonitorPort", 6000).toInt());

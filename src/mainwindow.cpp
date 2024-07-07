@@ -368,7 +368,7 @@ void MainWindow::checkVersions()
         qApp->processEvents();
     }
 
-    if (reply->error()) {        
+    if (reply->error()) {
         SystemUtils::showMessage(tr("QtEmu - Network problem"),
                                  tr("<p>There's a network problem</p>"),
                                  QMessageBox::Critical);
@@ -420,10 +420,10 @@ void MainWindow::quitApp()
  */
 void MainWindow::loadMachines()
 {
+    QString dataDir = QDir::toNativeSeparators(QCoreApplication::applicationDirPath());
     QSettings settings;
     settings.beginGroup("DataFolder");
-    QString dataDirectoryPath = settings.value("QtEmuData",
-                                               QDir::toNativeSeparators(QDir::homePath() + "/.qtemu/")).toString();
+    QString dataDirectoryPath = settings.value("QtEmuData", dataDir).toString();
     settings.endGroup();
 
     // Open the file with the machines
@@ -434,7 +434,7 @@ void MainWindow::loadMachines()
         return;
     }
 
-    if (!machinesFile.open(QIODevice::ReadOnly)) {        
+    if (!machinesFile.open(QIODevice::ReadOnly)) {
         SystemUtils::showMessage(tr("QtEmu - Critical error"),
                                  tr("<p><strong>Cannot load the saved machines</strong></p>"
                                     "<p>Cannot open the <strong>qtemu.json</strong> file. "

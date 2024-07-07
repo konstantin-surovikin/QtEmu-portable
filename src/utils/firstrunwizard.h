@@ -23,6 +23,7 @@
 
 // Qt
 #include <QObject>
+#include <QCoreApplication>
 #include <QWizard>
 #include <QGridLayout>
 #include <QLabel>

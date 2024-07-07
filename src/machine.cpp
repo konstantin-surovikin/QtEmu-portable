@@ -865,7 +865,7 @@ void Machine::readMachineErrorOut()
     QString errorOutput = rawErrorOutput;
     if (errorOutput.isEmpty()) {
         return;
-    }   
+    }
     SystemUtils::showMessage(tr("QEMU - Error Out"),
                              errorOutput,
                              QMessageBox::Critical);
@@ -1155,10 +1155,10 @@ bool Machine::saveMachine()
  */
 void Machine::insertMachineConfigFile()
 {
+    QString dataDir = QDir::toNativeSeparators(QCoreApplication::applicationDirPath());
     QSettings settings;
     settings.beginGroup("DataFolder");
-    QString dataDirectoryPath = settings.value("QtEmuData",
-                                               QDir::toNativeSeparators(QDir::homePath() + "/.qtemu/")).toString();
+    QString dataDirectoryPath = settings.value("QtEmuData", dataDir).toString();
     settings.endGroup();
     QString qtemuConfig = dataDirectoryPath.append("qtemu.json");
 

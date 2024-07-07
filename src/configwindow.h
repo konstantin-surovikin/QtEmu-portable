@@ -24,6 +24,7 @@
 
 // Qt
 #include <QWidget>
+#include <QCoreApplication>
 #include <QSettings>
 #include <QIcon>
 #include <QFileDialog>

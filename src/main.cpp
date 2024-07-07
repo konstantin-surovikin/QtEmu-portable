@@ -24,7 +24,6 @@
 #include <QTranslator>
 #include <QLibraryInfo>
 #include <QDir>
-#include <QCoreApplication>
 
 // C++ standard library
 #include <iostream>
@@ -65,7 +64,7 @@ int main(int argc, char *argv[])
     // Data folder
     settings.beginGroup("DataFolder");
     QDir dataDirectory;
-    QString dataDirectoryPath = QDir::toNativeSeparators(QDir::homePath() + "/.qtemu/");
+    QString dataDirectoryPath = QDir::toNativeSeparators(QCoreApplication::applicationDirPath());
     QString dataDirectoryLogs = QDir::toNativeSeparators(dataDirectoryPath + "logs");
 
     if (!dataDirectory.exists(dataDirectoryPath)) {

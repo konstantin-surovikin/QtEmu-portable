@@ -23,6 +23,7 @@
 
 // Qt
 #include <QObject>
+#include <QCoreApplication>
 #include <QProcess>
 #include <QTcpSocket>
 #include <QHash>
